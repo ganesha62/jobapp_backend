@@ -10,11 +10,15 @@ async function bootstrap() {
     transform: true,
   }));
   
-  app.enableCors({
-    origin: 'http://localhost:3000',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  });
+app.enableCors({
+  origin: [
+    'http://localhost:3000',         // local dev
+    'https://jobapp-phi.vercel.app/',
+  ],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+});
+
   const port = process.env.PORT || 3001;
   await app.listen(port, '0.0.0.0');
   console.log('Application is running on: http://localhost:3001');
