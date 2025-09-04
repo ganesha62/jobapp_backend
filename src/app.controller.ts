@@ -9,4 +9,10 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('test-cron')
+  getTestCron() {
+    console.log('🔄 Cron job manually triggered at', new Date());
+    return { message: 'Dummy cron executed successfully!' };
+  }
 }
